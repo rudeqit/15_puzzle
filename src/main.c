@@ -1,10 +1,10 @@
-#include "ncurses.h"
+#include <ncurses.h>
+#include "graphics.h"
 
 int main()
 {
 	initscr();
-	printw("MOM, I'M A PROGRAMER!\n");
-	refresh();
+	draw_something();
 	getch();
 	endwin();
 	return 0;
