@@ -1,6 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
+#include <ncurses.h>
 
-void draw_something();
+void create_colrow_window(WINDOW* stdscr);
 
 #endif
