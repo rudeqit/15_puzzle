@@ -1,17 +1,17 @@
-.PHONY: all grtest
+.PHONY: all clean
 
-all: 15_puzzle
+all: 15_puzzle_test
 
-15_puzzle: src/main.c
-	gcc -Wall src/main.c -o 15_puzzle -lncurses
+15_puzzle_test: build/main.o build/graphics.o src/graphics.h
+	gcc -Wall build/main.o build/graphics.o -o 15_puzzle_test -lncurses
 
-grtest: 15_puzzle_test
+build/main.o: src/main.c src/graphics.h
+	mkdir build -p
+	gcc -Wall -c src/main.c -o build/main.o
 
-15_puzzle_test:
-	gcc -Wall src/main.c src/graphics.c src/graphics.h -o 15_puzzle_test -lncurses
+build/graphics.o: src/graphics.c src/graphics.h
+	mkdir build -p
+	gcc -Wall -c src/graphics.c -o build/graphics.o
 
-#all: bin/15_puzzle
-
-#bin/15_puzzle: src/main.c
-#	mkdir bin -p
-#	gcc -Wall src/main.c -o bin/15_puzzle -lncurses
+clean:
+	rm -f 15_puzzle*
