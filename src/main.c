@@ -2,10 +2,11 @@
 #include "graphics.h"
 
 int main()
-{
+{  
 	initscr();
-	draw_something();
-	getch();
-	endwin();
-	return 0;
+	noecho();
+//	curs_set(FALSE);
+	create_colrow_window(stdscr);
+	getch();   
+   	endwin();
 }
