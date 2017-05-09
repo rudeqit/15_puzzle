@@ -2,6 +2,10 @@
 #define GRAPHICS_H
 #include <ncurses.h>
 
-void create_colrow_window(WINDOW* stdscr);
+void create_colsrow_window(WINDOW* stdscr);
+
+WINDOW *board(WINDOW* stdscr);
+
+//void draw_board(WINDOW* board_window);
 
 #endif
