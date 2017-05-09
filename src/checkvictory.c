@@ -1,4 +1,4 @@
-//#include...
+#include "checkvictory.h"
 
 int count_couple(int *arr)
 {

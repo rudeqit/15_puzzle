@@ -1,8 +1,7 @@
-//#include ...
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include "getnewnumbers.h"
 
 int getrand(int min, int max)
 {
