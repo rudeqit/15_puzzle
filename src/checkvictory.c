@@ -1,37 +1,19 @@
 //#include...
 
-void swp(int *arr)
-{
-    int swap;
-
-    swap = arr[4];
-    arr[4] = arr[7];
-    arr[7] = swap;
-
-    swap = arr[5];
-    arr[5] = arr[6];
-    arr[6] = swap;
-
-    swap = arr[12];
-    arr[12] = arr[14];
-    arr[14] = swap;
-}
-
 int count_couple(int *arr)
 {
     int count;
-
-    swp(arr);
+    int mas[] = {arr[0], arr[1], arr[2], arr[3], arr[7], arr[6], arr[5],
+	arr[4], arr[8], arr[9], arr[10], arr[11], arr[14], arr[13], arr[12]};
 
     for (int i = 0; i < 15; ++i) {
 	for (int j = i; j < 15; ++j) {
-	    if (arr[i] > arr[j]) {
+	    if (mas[i] > mas[j]) {
 		++count;
 	    }
 	}
     }
 
-    swp(arr);
     return count;
 }
 
