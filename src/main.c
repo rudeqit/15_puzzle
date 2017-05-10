@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include "graphics.h"
+#include "logic.h"
 
 int main()
 {  
