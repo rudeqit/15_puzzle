@@ -1,11 +1,24 @@
-#include "ncurses.h"
+#include <ncurses.h>
+#include "graphics.h"
+#include "logic.h"
 
 int main()
-{
+{  
 	initscr();
-	printw("MOM, I'M A PROGRAMER!\n");
-	refresh();
+	noecho();
+//	curs_set(FALSE);
+
+	create_colsrow_window(stdscr);
 	getch();
-	endwin();
-	return 0;
+
+	WINDOW *board_window = board(stdscr);
+	wrefresh(stdscr);
+	wrefresh(board_window);
+	getch();
+
+	int* arr = filling_array();
+	draw_board(board_window, arr);
+	getch();
+
+   	endwin();
 }
