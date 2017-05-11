@@ -6,6 +6,6 @@ void create_colsrow_window(WINDOW* stdscr);
 
 WINDOW *board(WINDOW* stdscr);
 
-//void draw_board(WINDOW* board_window);
+//void draw_board(WINDOW* board_window, int* arr);
 
 #endif
