@@ -28,20 +28,31 @@ WINDOW *board(WINDOW* stdscr)
 	return board_window;
 }
 
-/*
 void draw_board(WINDOW* board_window, int* arr)
 {
-	int i = 0, j = 0;
-	while (j * 4 + i < 16) {
-		mvwprintw(board_window, j + 1, i + 1, "%d", arr[j * 4 + i]);
-//		mvwaddch(board_window, j + 1, i + 1, arr[j * 4 + i]);
-		i++;
-		if (i > 3) {
-			i = 0;
-			j++;
+	int i, x = 1, y = 1;
+
+	for (i = 0; i <= 15; i++) {
+		x++;
+
+		if (x >= 13) {
+			x = 2;
+			y = y + 2;
+		} 
+
+		if (y < 9) { 
+			if ((arr[i] <= 9) && (arr[i] != 0)) {
+				mvwprintw(board_window, y, x, "%d ", arr[i]);
+				x = x + 2;
+			} else if ((arr[i] > 9) && (arr[i] != 0)) {
+				mvwprintw(board_window, y, x, "%d", arr[i]);
+				x = x + 2;
+			} else {
+				mvwprintw(board_window, y, x, "  ");
+				x = x + 2;
+			}
 		}
 	}
-	
+
 	wrefresh(board_window);
 }
-*/

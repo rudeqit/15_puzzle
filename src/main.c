@@ -16,9 +16,9 @@ int main()
 	wrefresh(board_window);
 	getch();
 
-//	int* arr = filling_array();
-//	draw_board(board_window, arr);
-//	getch();
+	int* arr = filling_array();
+	draw_board(board_window, arr);
+	getch();
 
    	endwin();
 }
