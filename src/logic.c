@@ -37,12 +37,15 @@ void randomize_board(int* arr)
 	}
 }
 
+/*
 int getrand(int min, int max)
 {
     return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
 }
+*/
 
-int get_new_numbers()
+/*
+int* get_new_numbers()
 {
     int arr[15], swap1, swap2, save;
     int rand;
@@ -65,9 +68,11 @@ int get_new_numbers()
 	}
     } while (check_victory(arr));
 
-    return *arr;
+    return arr;
 }
+*/
 
+/*
 int count_couple(int *arr)
 {
     int count;
@@ -84,7 +89,9 @@ int count_couple(int *arr)
 
     return count;
 }
+*/
 
+/*
 int check_victory(int *arr)
 {
 //  Вернуть 0, если пятнашки могут быть собраны
@@ -95,7 +102,9 @@ int check_victory(int *arr)
 	return 1;
     }
 }
+*/
 
+/*
 int endgame(int *arr) 
 {
     for (int i = 0; i < 15; ++i) {
@@ -107,3 +116,4 @@ int endgame(int *arr)
 
     return 1;
 }
+*/

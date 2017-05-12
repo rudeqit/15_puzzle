@@ -21,10 +21,6 @@ int main()
 	randomize_board(arr);
 	draw_board(board_window, arr);
 	getch();
-	
-	
-	
-	
 
    	endwin();
 }
