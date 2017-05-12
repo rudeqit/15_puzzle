@@ -22,7 +22,7 @@ WINDOW *board(WINDOW* stdscr)
 	int parent_cols, parent_row;
 	getmaxyx(stdscr, parent_row, parent_cols);
 
-	WINDOW *board_window = newwin(9, 14, (parent_row / 2) - 7, (parent_cols / 2) - 7);
+	WINDOW *board_window = newwin(9, 15, (parent_row / 2) - 7, (parent_cols / 2) - 7);
 	box(board_window, 0, 0);
 
 	return board_window;
