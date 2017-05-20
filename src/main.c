@@ -18,9 +18,11 @@ int main()
 	int* arr = filling_array();
 	randomize_board(arr);
 
+	int* mask = create_array(4);
+
 	while (1) {
 		draw_board(board_window, arr);
-		int zero_pos = search_zero(arr);
+		int zero_pos = mask_build(arr, mask);
 
 		switch (wgetch(board_window)) {
 		case 'q':
@@ -28,15 +30,27 @@ int main()
 			return 0;
 			break;
 		case 'd':
+			if (!mask[0]) {
+				break;
+			}
 			swapvalues(arr, zero_pos, zero_pos - 1);
 			break;
 		case 'w':
+			if (!mask[1]) {
+				break;
+			}
 			swapvalues(arr, zero_pos, zero_pos + 4);
 			break;
 		case 's':
+			if (!mask[2]) {
+				break;
+			}
 			swapvalues(arr, zero_pos, zero_pos - 4);
 			break;
 		case 'a':
+			if (!mask[3]) {
+				break;
+			}
 			swapvalues(arr, zero_pos, zero_pos + 1);
 			break;
 		}
