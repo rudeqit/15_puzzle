@@ -23,12 +23,31 @@ int* filling_array()
 	return arr;
 }
 
+void swapvalues(int* arr, int x, int y)
+{
+	int sv;
+	sv = arr[x];
+	arr[x] = arr[y];
+	arr[y] = sv;
+}
+
+int search_zero(int* arr)
+{
+	int zero_pos = 0;
+
+	while (arr[zero_pos] != 0) {
+		zero_pos++;
+	}
+
+	return zero_pos;
+}
 void randomize_board(int* arr)
 {
 	srand(time(NULL));
 	int c, j, a, b;
 	int i = rand()%(71) + 30;
-	for(j = 1; j < i; j++){
+
+	for (j = 1; j < i; j++) {
 		a = rand()%(16) + 0;
 		b = rand()%(16) + 0;
 		c = arr[a];
