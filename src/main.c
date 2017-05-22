@@ -55,6 +55,13 @@ int main()
 			break;
 		}
 
+		if (check_board(arr)) {
+			draw_board(board_window, arr);
+			getch();
+			endwin();
+			return 0;
+		}
+
 	}
 
 }
