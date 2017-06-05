@@ -11,6 +11,8 @@ void swapvalues(int* arr, int x, int y);
 
 int mask_build(int* arr, int* mask);
 
+int check_board(int* arr);
+
 //int getrand(int min, int max);
 
 //int get_new_numbers();
