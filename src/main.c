@@ -9,7 +9,8 @@ int main()
 	noecho();
 	curs_set(FALSE);
 
-	create_colsrow_window(stdscr);
+//	create_colsrow_window(stdscr);
+	control_window(stdscr);
 
 	WINDOW *board_window = board(stdscr);
 	wrefresh(stdscr);
@@ -57,6 +58,7 @@ int main()
 
 		if (check_board(arr)) {
 			draw_board(board_window, arr);
+			victory_window(board_window);
 			getch();
 			endwin();
 			return 0;

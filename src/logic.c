@@ -20,7 +20,14 @@ int* filling_array()
 	for (int i = 0; i < size; i++) {
 		arr[i] = i;
 	}
+/*
+	for (int i = 0; i < size; i++) {
+		arr[i] = i + 1;
+	}
 
+	arr[14] = 0;
+	arr[15] = 15;
+*/
 	return arr;
 }
 

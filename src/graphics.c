@@ -2,6 +2,7 @@
 #include <string.h>
 #include "graphics.h"
 
+/*
 void create_colsrow_window(WINDOW* stdscr)
 {
 	int parent_cols, parent_row;
@@ -15,6 +16,34 @@ void create_colsrow_window(WINDOW* stdscr)
 	wrefresh(stdscr);
 	wrefresh(colsrow_screen);
 //	wgetch(colsrow_screen);
+}
+*/
+
+void control_window(WINDOW* stdscr)
+{
+	int parent_cols, parent_row;
+	getmaxyx(stdscr, parent_row, parent_cols);
+
+	WINDOW *control_screen = newwin(4, 38, parent_row - 5, 0);
+	box(control_screen, 0, 0);
+	mvwprintw(control_screen, 1, 5, "Use \"w, a, s, d\" for control");
+	mvwprintw(control_screen, 2, 11, "and \"q\" for exit" );
+
+	wrefresh(stdscr);
+	wrefresh(control_screen);
+}
+
+void victory_window(WINDOW* stdscr)
+{
+	int parent_cols, parent_row;
+	getmaxyx(stdscr, parent_row, parent_cols);
+
+	WINDOW *victory_screen = newwin(3, 13, parent_row + 2, parent_cols + 14);
+	box(victory_screen, 0, 0);
+	mvwprintw(victory_screen, 1, 3, "You win!");
+
+//	wrefresh(stdscr);
+	wrefresh(victory_screen);
 }
 
 WINDOW *board(WINDOW* stdscr)
