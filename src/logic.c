@@ -41,7 +41,7 @@ void randomize_board(int* arr)
 			int zer = find_zero_pos(arr);
 			swapvalues(arr, zer, 15);
 		}
-	} while (count_couple(arr) == 1); 
+	} while (!check_solvency(arr));
 }
 
 int find_zero_pos(int* arr)
@@ -94,7 +94,7 @@ int mask_build(int* arr, int* mask)
 	return zero_pos;
 }
 
-int check_board(int* arr)
+int check_victory(int* arr)
 {
 	for (int i = 0; i < 16; i++) {
 		if (i != 15 && arr[i] != i + 1) {
@@ -107,7 +107,7 @@ int check_board(int* arr)
 	return 1;
 }
 
-int count_couple(int *arr)
+int count_couple(int* arr)
 {
 	int count, zero_line;
 
@@ -127,11 +127,11 @@ int count_couple(int *arr)
 	return count;
 }
 
-int check_victory(int *arr)
+int check_solvency(int* arr)
 {
     if (count_couple(arr) % 2 == 0) {
-		return 0;
-    } else {
 		return 1;
+    } else {
+		return 0;
     }
 }

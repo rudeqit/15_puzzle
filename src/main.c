@@ -51,7 +51,7 @@ int main()
 			break;
 		}
 
-		if (check_board(arr)) {
+		if (check_victory(arr)) {
 			draw_board(board_window, arr);
 			victory_window(board_window);
 			getch();
