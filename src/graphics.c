@@ -1,30 +1,11 @@
-#include <ncurses.h>
-#include <string.h>
 #include "graphics.h"
-
-/*
-void create_colsrow_window(WINDOW* stdscr)
-{
-	int parent_cols, parent_row;
-	getmaxyx(stdscr, parent_row, parent_cols);
-
-	WINDOW *colsrow_screen = newwin(3, 43, parent_row - 3, 0);
-	box(colsrow_screen, 0, 0);
-	mvwprintw(colsrow_screen, 1, 1, "The number of rows - %d and columns - %d", parent_cols, parent_row);
-
-//	touchwin(stdscr); //how it work?
-	wrefresh(stdscr);
-	wrefresh(colsrow_screen);
-//	wgetch(colsrow_screen);
-}
-*/
 
 void control_window(WINDOW* stdscr)
 {
 	int parent_cols, parent_row;
 	getmaxyx(stdscr, parent_row, parent_cols);
 
-	WINDOW *control_screen = newwin(4, 38, parent_row - 5, 0);
+	WINDOW *control_screen = newwin(4, 38, parent_row - 5, parent_cols - parent_cols);
 	box(control_screen, 0, 0);
 	mvwprintw(control_screen, 1, 5, "Use \"w, a, s, d\" for control");
 	mvwprintw(control_screen, 2, 11, "and \"q\" for exit" );
@@ -42,7 +23,6 @@ void victory_window(WINDOW* stdscr)
 	box(victory_screen, 0, 0);
 	mvwprintw(victory_screen, 1, 3, "You win!");
 
-//	wrefresh(stdscr);
 	wrefresh(victory_screen);
 }
 
