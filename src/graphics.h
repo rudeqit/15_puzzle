@@ -1,8 +1,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
-#include <ncurses.h>
 
-//void create_colsrow_window(WINDOW* stdscr);
+#include <ncurses.h>
 
 void control_window(WINDOW* stdscr);
 

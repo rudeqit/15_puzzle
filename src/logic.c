@@ -1,12 +1,10 @@
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
 #include "logic.h"
 
-int* create_array(size_t size)
+int* create_array(int size)
 {
 	int* result = malloc(sizeof(int) * size);
 	memset(result, 0, sizeof(int) * size);
+
 	return result;
 }
 
@@ -19,15 +17,42 @@ int* filling_array()
 	for (int i = 0; i < size; ++i) {
 		arr[i] = i;
 	}
-/*
-	for (int i = 0; i < size; i++) {
-		arr[i] = i + 1;
+
+	randomize_board(arr);
+
+	return arr;
+}
+
+void randomize_board(int* arr)
+{
+	srand(time(NULL));
+	int c, j, a, b;
+	int i = rand() % (71) + 30;
+
+	do {
+		for (j = 1; j < i; ++j) {
+			a = rand() % (16) + 0;
+			b = rand() % (16) + 0;
+			c = arr[a];
+			arr[a] = arr[b];
+			arr[b] = c;
+		}
+		if (arr[15]) {
+			int zer = find_zero_pos(arr);
+			swapvalues(arr, zer, 15);
+		}
+	} while (count_couple(arr) == 1); 
+}
+
+int find_zero_pos(int* arr)
+{
+	int i = 0; 
+
+	while (arr[i] != 0) {
+		i++;
 	}
 
-	arr[14] = 0;
-	arr[15] = 15;
-*/
-	return arr;
+	return i;
 }
 
 void swapvalues(int* arr, int x, int y)
@@ -69,44 +94,12 @@ int mask_build(int* arr, int* mask)
 	return zero_pos;
 }
 
-int find_zero_pos(int* arr)
-{
-	int i = 0; 
-
-	while (arr[i] != 0) {
-		i++;
-	}
-
-	return i;
-}
-
-void randomize_board(int* arr)
-{
-	srand(time(NULL));
-	int c, j, a, b;
-	int i = rand() % (71) + 30;
-
-	do {
-		for (j = 1; j < i; j++) {
-			a = rand() % (16) + 0;
-			b = rand() % (16) + 0;
-			c = arr[a];
-			arr[a] = arr[b];
-			arr[b] = c;
-		}
-		if (arr[15]) {
-			int zer = find_zero_pos(arr);
-			swapvalues(arr, zer, 15);
-		}
-	} while (count_couple(arr) == 1); 
-}
-
 int check_board(int* arr)
 {
 	for (int i = 0; i < 16; i++) {
 		if (i != 15 && arr[i] != i + 1) {
 			return 0;
-		} else if (i == 15 && arr[i] != 0) {
+		} else if (i == 15 && arr[i]) {
 			return 0;
 		}
 	}
@@ -136,60 +129,9 @@ int count_couple(int *arr)
 
 int check_victory(int *arr)
 {
-//  Вернуть 0, если пятнашки могут быть собраны
-//  и 1, если нет
     if (count_couple(arr) % 2 == 0) {
 		return 0;
     } else {
 		return 1;
     }
 }
-
-/*
-int getrand(int min, int max)
-{
-    return (double)rand() / (RAND_MAX + 1.0) * (max - min) + min;
-}
-*/
-
-/*
-int* get_new_numbers()
-{
-    int arr[15], swap1, swap2, save;
-    int rand;
-
-    srand(time(NULL));
-
-    for (int i = 0; i < 15; ++i) {
-	arr[i] = i + 1;
-    }
-
-    do {
-	rand = getrand(20, 30);
-
-	for (int i = 0; i < rand; ++i) {
-	    swap1 = getrand(0, 15);
-	    swap2 = getrand(0, 15);
-	    save = arr[swap1];
-	    arr[swap1] = arr[swap2];
-	    arr[swap2] = save;
-	}
-    } while (check_victory(arr));
-
-    return arr;
-}
-*/
-
-/*
-int endgame(int *arr) 
-{
-    for (int i = 0; i < 15; ++i) {
-	if (arr[i] != i + 1) {
-	    return 0;
-	    break;
-	}
-    }
-
-    return 1;
-}
-*/

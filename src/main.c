@@ -1,5 +1,3 @@
-#include <ncurses.h>
-#include <stdio.h>
 #include "graphics.h"
 #include "logic.h"
 
@@ -9,7 +7,6 @@ int main()
 	noecho();
 	curs_set(FALSE);
 
-//	create_colsrow_window(stdscr);
 	control_window(stdscr);
 
 	WINDOW *board_window = board(stdscr);
@@ -17,8 +14,6 @@ int main()
 	wrefresh(board_window);
 
 	int* arr = filling_array();
-	randomize_board(arr);
-
 	int* mask = create_array(4);
 
 	while (1) {
