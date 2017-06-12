@@ -20,22 +20,22 @@ build/src/logic.o: src/logic.c src/logic.h
 
 test: bin/15_puzzle_test
 
-bin/15_puzzle_test: build/src/logic.o build/test/main.o build/test/logic_test.o build/test/win_test.o
+bin/15_puzzle_test: build/src/logic.o build/test/main.o build/test/combination_test.o build/test/out_edge_test.o
 	mkdir bin -p
-	gcc -std=c99 -I thirdparty -I src -Wall build/src/logic.o build/test/main.o build/test/logic_test.o build/test/win_test.o -o bin/15_puzzle_test
+	gcc -std=c99 -I thirdparty -I src -Wall build/src/logic.o build/test/main.o build/test/combination_test.o build/test/out_edge_test.o -o bin/15_puzzle_test
 	bin/15_puzzle_test
 
 build/test/main.o: test/main.c
 	mkdir build/test -p
 	gcc -std=c99 -I thirdparty -I src -Wall -c test/main.c -o build/test/main.o
 
-build/test/logic_test.o: test/logic_test.c
+build/test/combination_test.o: test/combination_test.c
 	mkdir build/test -p
-	gcc -std=c99 -I thirdparty -I src -Wall -c test/logic_test.c -o build/test/logic_test.o
+	gcc -std=c99 -I thirdparty -I src -Wall -c test/combination_test.c -o build/test/combination_test.o
 
-build/test/win_test.o: test/win_test.c
+build/test/out_edge_test.o: test/out_edge_test.c
 	mkdir build/test -p
-	gcc -std=c99 -I thirdparty -I src -Wall -c test/win_test.c -o build/test/win_test.o
+	gcc -std=c99 -I thirdparty -I src -Wall -c test/out_edge_test.c -o build/test/out_edge_test.o
 
 clean:
 	rm -rf build/* bin/*
