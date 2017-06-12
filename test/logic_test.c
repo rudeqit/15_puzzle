@@ -1,32 +1,54 @@
-#include <ctest.h>
-#include <logic.h>
+#include "ctest.h"
+#include "logic.h"
 
 CTEST(check_solvency, correct_win_combination)
 {
-	int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+	int arr[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
 		11, 12, 13, 14, 15, 0};
-
 	const int result = check_solvency(arr);
+	const int expect = 0;
 
-	ASSERT_TRUE(result);
+	ASSERT_EQUAL(expect, result);
 }
 
-CTEST(check_solvency, correct_combination)
+CTEST(check_solvency, random_correct_combination)
 {
-	int arr[] = {14, 5, 2, 3, 7, 12, 15, 11, 4, 
-		13, 9, 10, 1, 8, 6, 0};
-
+	int arr[16] = {13, 3, 10, 4, 2, 14, 9, 1, 
+		15, 6, 12, 5, 7, 11, 8, 0};
 	const int result = check_solvency(arr);
+	const int expect = 0;
 
-	ASSERT_TRUE(result);
+	ASSERT_EQUAL(expect, result);
 }
 
-CTEST(check_solvency, uncorrect_combination)
+CTEST(check_solvency, random_uncorrect_combination)
 {
-	int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+	int arr[16] = {13, 3, 10, 4, 2, 6, 9, 1, 
+		15, 14, 12, 5, 7, 11, 8, 0};
+	const int result = check_solvency(arr);
+	const int expect = 1;
+
+	ASSERT_EQUAL(expect, result);
+}
+
+CTEST(check_solvency, uncorrect_15_14_combination)
+{
+	int arr[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
 		11, 12, 13, 15, 14, 0};
 
 	const int result = check_solvency(arr);
+	const int expect = 1;
 
-	ASSERT_FALSE(result);
+	ASSERT_EQUAL(expect, result);
 }
+/*
+CTEST(check_victory, correct_win_combination)
+{
+	int arr[16] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
+		11, 12, 13, 14, 15, 0};
+	const int result = check_victory(arr);
+	const int expect = 1;
+
+	ASSERT_EQUAL(expect, result);
+}
+*/
