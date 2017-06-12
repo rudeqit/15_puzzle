@@ -17,10 +17,10 @@ void swapvalues(int* arr, int x, int y);
 
 int mask_build(int* arr, int* mask);
 
-int check_board(int* arr);
+int check_victory(int* arr);
 
 int count_couple(int* arr);
 
-int check_victory(int* arr);
+int check_solvency(int* arr);
 
 #endif
