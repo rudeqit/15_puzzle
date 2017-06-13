@@ -19,9 +19,9 @@ void victory_window(WINDOW* stdscr)
 	int parent_cols, parent_row;
 	getmaxyx(stdscr, parent_row, parent_cols);
 
-	WINDOW *victory_screen = newwin(3, 13, parent_row + 2, parent_cols + 14);
+	WINDOW *victory_screen = newwin(3, 15, (parent_row / 3) - 6, (parent_cols / 2) - 7);
 	box(victory_screen, 0, 0);
-	mvwprintw(victory_screen, 1, 3, "You win!");
+	mvwprintw(victory_screen, 1, 4, "You win!");
 
 	wrefresh(victory_screen);
 }

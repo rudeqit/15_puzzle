@@ -53,7 +53,7 @@ int main()
 
 		if (check_victory(arr)) {
 			draw_board(board_window, arr);
-			victory_window(board_window);
+			victory_window(stdscr);
 			getch();
 			endwin();
 			return 0;
