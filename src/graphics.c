@@ -47,9 +47,9 @@ void draw_board(WINDOW* board_window, int* arr)
 		if (x >= 13) {
 			x = 2;
 			y += 2;
-		} 
+		}
 
-		if (y < 9) { 
+		if (y < 9) {
 			if ((arr[i] <= 9) && (arr[i] != 0)) {
 				mvwprintw(board_window, y, x, "%d ", arr[i]);
 				x += 2;

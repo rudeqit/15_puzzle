@@ -2,7 +2,7 @@
 #include "logic.h"
 
 int main()
-{  
+{
 	initscr();
 	noecho();
 	curs_set(FALSE);
